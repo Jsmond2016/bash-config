@@ -2,3 +2,5 @@
 
 - bash 配置
 - vim 配置
+- JDK 配置
+- `SwitchOmega.bak` 配置 
