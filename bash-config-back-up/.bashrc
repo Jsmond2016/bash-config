@@ -1,5 +1,6 @@
-cd /mnt/c/Users/jin/desktop
+# cd /mnt/c/Users/jin/desktop
 . ~/z/z.sh
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -93,9 +94,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-export PYTHONIOENCODING=UTF-8
-export LANG='en_US.UTF-8'
-export LC_ALL='en_US.UTF-8'
 
 alias c='clear'
 alias j='z'
@@ -136,46 +134,47 @@ fi
 
 # 查找文件
 f() {
-	  local file
-	    q=$1
+  local file
+  q=$1
 
-	      file=$( fzf --query="" --select-1 --exit-0 -x)
-	        if [ -n "$file" ] ;then
-			    vim "$file"
-			      fi
-			        echo "fzf: bye"
-			}
+  file=$( fzf --query="" --select-1 --exit-0 -x)
+  if [ -n "$file" ] ;then
+    vim "$file"
+  fi
+  echo "fzf: bye"
+}
 
-			# 查找并 open 文件，如果你没有 open 请先 alias 一下 open
-			fo(){
-				  local file
-				    q=$1
+# 查找并 open 文件，如果你没有 open 请先 alias 一下 open
+fo(){
+  local file
+  q=$1
 
-				      #file=$(ag -l -g ""| fzf --query="$q" --select-1 --exit-0 -x)
-				        file=$( fzf --query="" --select-1 --exit-0 -x)
-					  if [ -n "$file" ] ;then
-						      open "$file"
-						        fi
-							  echo "fzf: bye"
-						  }
-						  # 查找并打开文件所在目录
-						  fd() {
-							    local file
-							      local dir
-							        file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
-							}
+  #file=$(ag -l -g ""| fzf --query="$q" --select-1 --exit-0 -x)
+  file=$( fzf --query="" --select-1 --exit-0 -x)
+  if [ -n "$file" ] ;then
+    open "$file"
+  fi
+  echo "fzf: bye"
+}
+# 查找并打开文件所在目录
+fd() {
+  local file
+  local dir
+  file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+}
 
-							# 搜索文件内容并用vim打开对应行
-							fs(){
-								  local file
-								    q=$1
-								      if [ -z "$q"] ;then
-									          q="."
-										    fi
-										      result=$(ag "$q" | fzf)
-										        IFS=':' read file line other <<< "$result"
-											  [ -n "$file" ] && vim "$file" +"$line";
-										  }
+# 搜索文件内容并用vim打开对应行
+fs(){
+  local file
+  q=$1
+  if [ -z "$q"] ;then
+    q="."
+  fi
+  result=$(ag "$q" | fzf)
+  IFS=':' read file line other <<< "$result"
+  [ -n "$file" ] && vim "$file" +"$line";
+}
 
+export PATH="$PATH:/f/software/GnuWin32/bin/"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
