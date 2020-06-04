@@ -98,16 +98,21 @@ alias l='ls -CF'
 alias c='clear'
 alias j='z'
 alias gst="git status -sb"
-alias ga="git add"
-alias gc="git commit -v"
-alias gcc="git commit . -m update"
+alias ga="git add ."
+# alias gc="git commit -v"
+alias gc="git cz"
+alias yc="yarn commit"
+alias gck="git checkout"
+# alias gcc="git commit . -m update"
 alias gp="git push"
 alias gl="git pull"
 alias open="start"
 alias ll="ls -la"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -- | less"
 alias start='explorer.exe'
-
+alias ys='yarn start'
+alias ys2='PORT=8001 yarn start'
+alias change-git-config='git config --local user.name "Jsmond" && git config --local user.email "jsmond2016@gmail.com" '
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
