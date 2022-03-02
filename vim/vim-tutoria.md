@@ -4,9 +4,32 @@
 
 > 文章来源于：[VS Code VIM 插件高效使用](https://www.ohyee.cc/post/note_vim) 有删改
 
+![](./imgs/vim-sheet.gif)
+
+## 权威推荐
+
+[Vim Cheat Sheet](https://vim.rtorr.com/lang/zh_cn)
+
 ## VSCode 化
 
+> 相关资料插件，可以参考：[vscode键盘侠养成记](https://juejin.cn/post/6844904099880632328)
+
 由于 VSCode 本身存在一些功能可能与 Vim 冲突，以尽可能提高代码效率需要根据实际需要来决定是使用 VSCode 特性或是 Vim 特性。
+
+插件支持：
+
+- File Utils
+- [JavaScript (ES6) code snippets](https://github.com/xabikos/vscode-javascript)
+- [ES7 React/Redux/GraphQL/React-Native](https://github.com/dsznajder/vscode-react-javascript-snippets)
+
+安装以后，需要去了解这些 snippets 有哪些 快捷代码的方式；
+
+相关操作：
+
+- `ctr + 0` 聚焦左侧目录栏
+- `ctr + shift + e` 聚焦至文件编辑器首行
+- `ctr + p` 快速切换文件
+- `ctr + `\` 切换至 命令终端
 
 ## 模式
 
